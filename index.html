@@ -347,17 +347,23 @@ math.with.python2025@gmail.com</a>
 document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
-<!-- CONTADOR DE VISITAS -->
+<!-- CONTADOR DE VISITAS (ARREGLADO) -->
 <div class="visit-counter">
-  👁️ Visitas: <span id="visits">0</span>
+  👁️ Visitas: <span id="visits">—</span>
 </div>
 
 <script>
-fetch('https://api.countapi.xyz/hit/math-with-python/visitas')
-  .then(response => response.json())
+fetch("https://api.countapi.xyz/hit/math.with.python.web/visitas")
+  .then(res => res.json())
   .then(data => {
-    document.getElementById('visits').innerText = data.value;
+    document.getElementById("visits").innerText = data.value;
+  })
+  .catch(() => {
+    document.getElementById("visits").innerText = "—";
   });
+</script>
+
 </body>
 </html>
+
 
